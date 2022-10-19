@@ -1,3 +1,4 @@
+const output = document.querySelector(".output");
 
  const zero = document.querySelector(".zero");
  const one = document.querySelector(".one");
@@ -16,9 +17,10 @@
  const divide = document.querySelector(".divide");
  const equalTo = document.querySelector(".equalTo");
  
- const output = document.querySelector(".output");
-
+ const dot = document.querySelector(".dot");
+ 
  let expression = output.textContent;
+ let isDecimalAvailable = true;
 
     zero.addEventListener("click", ()=>{
         if(expression != "0"){
@@ -241,7 +243,11 @@
 
 
     add.addEventListener("click", ()=>{
+        isDecimalAvailable = true;
 
+        if(expression[expression.length - 1] == "="){
+            expression = expression.replace("=", "");
+        }
         for(let i = expression.length - 1; i >= 0; i--){
             if(expression[i] == "+" || expression[i] == "-" || expression[i] == "*" || expression[i] == "/"){
                 expression = evaluateExpression(expression);
@@ -250,14 +256,28 @@
                 return;
             }
         }
-        console.log(typeof(expression))
         expression = expression.concat("+");
     });
 
     equalTo.addEventListener("click", ()=>{
+        isDecimalAvailable = true;
         expression = evaluateExpression(expression);
         output.textContent = expression;
         expression = expression.concat("=");
+    })
+
+    dot.addEventListener("click",()=>{
+
+        
+        if(expression[expression.length - 1] == "="){
+            expression = "";
+        }
+        if(isDecimalAvailable){
+            expression = expression.concat(".");
+            output.textContent = output.textContent.concat(".");
+            isDecimalAvailable = false;
+        }
+
     })
 
  function evaluateExpression(exp){
@@ -281,6 +301,15 @@
 
     }   
 
+    console.log(firstValue)
+    console.log(operator)
+    console.log(secondValue)
+    if(secondValue == ""){
+        return firstValue;
+    }
+
+    firstValue = Number(firstValue);
+    secondValue = Number(secondValue);
 
     switch(operator){
         case "+":
@@ -299,13 +328,17 @@
             ans = divideVal(firstValue, secondValue);
         break;
     }
+    
+    if((ans - Math.floor(ans)) !== 0){
+        ans = ans.toFixed(2);
+    }
 
     return ans.toString()
  }
 
  function addVal(num1, num2){
 
-    return parseInt(num1) + parseInt(num2);
+    return num1 + num2;
 
  }
 

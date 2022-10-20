@@ -1,5 +1,6 @@
 const output = document.querySelector(".output");
 
+
  const zero = document.querySelector(".zero");
  const one = document.querySelector(".one");
  const two = document.querySelector(".two");
@@ -16,39 +17,88 @@ const output = document.querySelector(".output");
  const multiply = document.querySelector(".multiply");
  const divide = document.querySelector(".divide");
  const equalTo = document.querySelector(".equalTo");
+ const modulo = document.querySelector(".modulo")
  
  const dot = document.querySelector(".dot");
  
- let expression = output.textContent;
+ let expression = output.value;
  let isDecimalAvailable = true;
 
-    zero.addEventListener("click", ()=>{
+window.addEventListener("keydown", (e)=>{
+
+    console.log(e)
+    
+    switch(e.key){
+        case "Backspace": 
+            e.preventDefault()
+        break;
+        case 0:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        case 1:
+        break;
+        default:
+            e.preventDefault()
+            
+    }
+})
+
+ zero.addEventListener("click", ()=>{
         if(expression != "0"){
-            expression = expression.concat("0");
-            output.textContent = expression;
+            if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" ||         expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
+            {
+                if(expression[expression.length - 1] == "="){
+                    expression = "";
+                }
+                output.value = "0";
+                expression = expression.concat("0");
+            }else
+            {
+                output.value = output.value.concat("0");
+                expression = expression.concat("0");
+            }
         }
+
+        console.log(expression)
     });
 
     one.addEventListener("click", ()=>{
 
         if(expression == "0"){
             expression = "1";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" ||         expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "1";
+                output.value = "1";
                 expression = expression.concat("1");
             }else
             {
-                output.textContent = output.textContent.concat("1");
+                output.value = output.value.concat("1");
                 expression = expression.concat("1");
             }
         }
+        console.log(expression)
 
     });
 
@@ -56,22 +106,23 @@ const output = document.querySelector(".output");
 
         if(expression == "0"){
             expression = "2";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "2";
+                output.value = "2";
                 expression = expression.concat("2");
             }else
             {
-                output.textContent = output.textContent.concat("2");
+                output.value = output.value.concat("2");
                 expression = expression.concat("2");
             }
         }
+        console.log(expression)
 
     });
 
@@ -79,23 +130,24 @@ const output = document.querySelector(".output");
 
         if(expression == "0"){
             expression = "3";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "3";
+                output.value = "3";
                 expression = expression.concat("3");
             }else
             {
                 console.log("now i'm in else-> else condition")
-                output.textContent = output.textContent.concat("3");
+                output.value = output.value.concat("3");
                 expression = expression.concat("3");
             }
         }
+        console.log(expression)
 
     });
 
@@ -103,22 +155,23 @@ const output = document.querySelector(".output");
 
         if(expression == "0"){
             expression = "4";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "4";
+                output.value = "4";
                 expression = expression.concat("4");
             }else
             {
-                output.textContent = output.textContent.concat("4");
+                output.value = output.value.concat("4");
                 expression = expression.concat("4");
             }
         }
+        console.log(expression)
 
     });
 
@@ -126,22 +179,23 @@ const output = document.querySelector(".output");
 
        if(expression == "0"){
             expression = "5";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "5";
+                output.value = "5";
                 expression = expression.concat("5");
             }else
             {
-                output.textContent = output.textContent.concat("5");
+                output.value = output.value.concat("5");
                 expression = expression.concat("5");
             }
         }
+        console.log(expression)
 
     });
 
@@ -149,44 +203,46 @@ const output = document.querySelector(".output");
 
         if(expression == "0"){
             expression = "6";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "6";
+                output.value = "6";
                 expression = expression.concat("6");
             }else
             {
-                output.textContent = output.textContent.concat("6");
+                output.value = output.value.concat("6");
                 expression = expression.concat("6");
             }
         }
+        console.log(expression)
 
     });
 
     seven.addEventListener("click", ()=>{
         if(expression == "0"){
             expression = "7";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "7";
+                output.value = "7";
                 expression = expression.concat("7");
             }else
             {
-                output.textContent = output.textContent.concat("7");
+                output.value = output.value.concat("7");
                 expression = expression.concat("7");
             }
         }
+        console.log(expression)
 
     });
 
@@ -194,22 +250,23 @@ const output = document.querySelector(".output");
 
        if(expression == "0"){
             expression = "8";
-            output.textContent = expression;
+            output.value = expression;
         }else{
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "=")
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 if(expression[expression.length - 1] == "="){
                     expression = "";
                 }
-                output.textContent = "8";
+                output.value = "8";
                 expression = expression.concat("8");
             }else
             {
-                output.textContent = output.textContent.concat("8");
+                output.value = output.value.concat("8");
                 expression = expression.concat("8");
             }
         }
+        console.log(expression)
 
     });
 
@@ -217,10 +274,10 @@ const output = document.querySelector(".output");
 
      if(expression == "0"){
             expression = "9";
-            output.textContent = expression;
+            output.value = expression;
         }else{
-            if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" || 
-            expression[expression.length - 1] == "=")
+            if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
             {
                 console.log(expression);
 
@@ -230,14 +287,15 @@ const output = document.querySelector(".output");
 
                 console.log(expression);
 
-                output.textContent = "9";
+                output.value = "9";
                 expression = expression.concat("9");
             }else
             {
-                output.textContent = output.textContent.concat("9");
+                output.value = output.value.concat("9");
                 expression = expression.concat("9");
             }
         }
+        console.log(expression)
 
     });
 
@@ -249,21 +307,115 @@ const output = document.querySelector(".output");
             expression = expression.replace("=", "");
         }
         for(let i = expression.length - 1; i >= 0; i--){
-            if(expression[i] == "+" || expression[i] == "-" || expression[i] == "*" || expression[i] == "/"){
+            if(expression[i] == "+" || expression[i] == "-" || expression[i] == "*" || expression[i] == "/" ||
+               expression[i] == "%"){
                 expression = evaluateExpression(expression);
-                output.textContent = expression;
+                output.value = expression;
                 expression = expression.concat("+");
+                console.log(expression)
                 return;
             }
         }
         expression = expression.concat("+");
+        console.log(expression)
+
     });
+
+    subtract.addEventListener("click", ()=>{
+        isDecimalAvailable = true;
+
+        if(expression[expression.length - 1] == "="){
+            expression = expression.replace("=", "");
+        }
+        for(let i = expression.length - 1; i >= 0; i--){
+            if(expression[i] == "+" || expression[i] == "-" || expression[i] == "*" || expression[i] == "/" ||
+               expression[i] == "%"){
+                expression = evaluateExpression(expression);
+                output.value = expression;
+                expression = expression.concat("-");
+                console.log(expression)
+                return;
+            }
+        }
+        expression = expression.concat("-");
+        console.log(expression)
+
+    });
+
+    multiply.addEventListener("click", ()=>{
+        isDecimalAvailable = true;
+
+        if(expression[expression.length - 1] == "="){
+            expression = expression.replace("=", "");
+        }
+        for(let i = expression.length - 1; i >= 0; i--){
+            if(expression[i] == "+" || expression[i] == "-" || expression[i] == "*" || expression[i] == "/" ||
+               expression[i] == "%"){
+                expression = evaluateExpression(expression);
+                output.value = expression;
+                expression = expression.concat("*");
+                console.log(expression)
+                return;
+            }
+        }
+        expression = expression.concat("*");
+        console.log(expression)
+
+    });
+
+    divide.addEventListener("click", ()=>{
+        isDecimalAvailable = true;
+
+        if(expression[expression.length - 1] == "="){
+            expression = expression.replace("=", "");
+        }
+        for(let i = expression.length - 1; i >= 0; i--){
+            if(expression[i] == "+" || expression[i] == "-" || expression[i] == "*" || expression[i] == "/" ||
+               expression[i] == "%"){
+                expression = evaluateExpression(expression);
+                output.value = expression;
+                expression = expression.concat("/");
+                console.log(expression)
+                return;
+            }
+        }
+        expression = expression.concat("/");
+        console.log(expression)
+
+    });
+
+    modulo.addEventListener("click", ()=>{
+        isDecimalAvailable = true;
+
+        if(expression[expression.length - 1] == "="){
+            expression = expression.replace("=", "");
+        }
+        for(let i = expression.length - 1; i >= 0; i--){
+            if(expression[i] == "+" || expression[i] == "-" || expression[i] == "*" || expression[i] == "/" ||
+               expression[i] == "%"){
+                expression = evaluateExpression(expression);
+                output.value = expression;
+                expression = expression.concat("%");
+                console.log(expression)
+                return;
+            }
+        }
+        expression = expression.concat("%");
+        console.log(expression)
+
+    });
+
+
 
     equalTo.addEventListener("click", ()=>{
         isDecimalAvailable = true;
         expression = evaluateExpression(expression);
-        output.textContent = expression;
-        expression = expression.concat("=");
+        if(expression[expression.length - 1] != "="){
+            output.value = expression;
+            expression = expression.concat("=");
+        }
+        console.log(expression)
+
     })
 
     dot.addEventListener("click",()=>{
@@ -272,60 +424,66 @@ const output = document.querySelector(".output");
         if(expression[expression.length - 1] == "="){
             expression = "";
         }
+
         if(isDecimalAvailable){
             expression = expression.concat(".");
-            output.textContent = output.textContent.concat(".");
+            output.value = output.value.concat(".");
             isDecimalAvailable = false;
         }
+        console.log(expression)
 
     })
 
  function evaluateExpression(exp){
     let arr = exp.split("");
     let operator = null;
-    let firstValue = "";
-    let secondValue = "";
+    let firstvalue = "";
+    let secondvalue = "";
     let ans = "";
 
     for(let i = 0; i<arr.length; i++){
-        if(arr[i] == "+" || arr[i] == "-" || arr[i] == "*" || arr[i] == "/"){
+        if(arr[i] == "+" || arr[i] == "-" || arr[i] == "*" || arr[i] == "/" || arr[i] == "%"){
             operator = arr[i];
         }else{
             if(operator == null){
-                firstValue = firstValue.concat(arr[i]);
+                firstvalue = firstvalue.concat(arr[i]);
             }else{
-                secondValue = secondValue.concat(arr[i]);
+                secondvalue = secondvalue.concat(arr[i]);
             }
 
         }
 
     }   
 
-    console.log(firstValue)
+    console.log(firstvalue)
     console.log(operator)
-    console.log(secondValue)
-    if(secondValue == ""){
-        return firstValue;
+    console.log(secondvalue)
+    if(secondvalue == ""){
+        return firstvalue;
     }
 
-    firstValue = Number(firstValue);
-    secondValue = Number(secondValue);
+    firstvalue = Number(firstvalue);
+    secondvalue = Number(secondvalue);
 
     switch(operator){
         case "+":
-            ans = addVal(firstValue, secondValue);
+            ans = addVal(firstvalue, secondvalue);
         break;
 
         case "-":
-            ans = subtractVal(firstValue, secondValue);
+            ans = subtractVal(firstvalue, secondvalue);
         break;
 
         case "*":
-            ans = multiplyVal(firstValue, secondValue);
+            ans = multiplyVal(firstvalue, secondvalue);
         break;
 
         case "/":
-            ans = divideVal(firstValue, secondValue);
+            ans = divideVal(firstvalue, secondvalue);
+        break;
+
+        case "%":
+            ans = modVal(firstvalue, secondvalue);
         break;
     }
     
@@ -364,8 +522,6 @@ const output = document.querySelector(".output");
 
   }
 
-  function displayOutput(value){
-
-    output.textContent = value;
-
+  function modVal(num1, num2){
+    return num1 % num2;
   }

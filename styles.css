@@ -16,10 +16,17 @@ html {
 body {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: cyan;
     font-family: sans-serif;
+}
+
+p{
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .outerBody {
@@ -36,18 +43,20 @@ body {
     height: 40px;
     background-color: #1a2322;
     color: #ffffff;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     padding: 8px;
     border: none;
     cursor:none;
 }
 
+
+
 .output {
     height: 60px;
     background-color: #1a2322;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 48px;
     font-weight: bold;
     padding: 8px;
     border: none;

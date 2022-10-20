@@ -1,7 +1,10 @@
+const para = document.querySelector("p");
 const output = document.querySelector(".output");
+const dispExp = document.querySelector(".exp");
 
 
  const zero = document.querySelector(".zero");
+ const doubleZero = document.querySelector(".doubleZero");
  const one = document.querySelector(".one");
  const two = document.querySelector(".two");
  const three = document.querySelector(".three");
@@ -18,7 +21,8 @@ const output = document.querySelector(".output");
  const divide = document.querySelector(".divide");
  const equalTo = document.querySelector(".equalTo");
  const modulo = document.querySelector(".modulo")
- 
+ const backspace = document.querySelector(".backspace");
+ const empty = document.querySelector(".empty");
  const dot = document.querySelector(".dot");
  
  let expression = output.value;
@@ -29,28 +33,44 @@ window.addEventListener("keydown", (e)=>{
     console.log(e)
     
     switch(e.key){
-        case "Backspace": 
-            e.preventDefault()
+        case "0":
+            selectZero()
         break;
-        case 0:
+        case "1":
+            selectOne();
         break;
-        case 1:
+        case "2":
+            selectTwo();
         break;
-        case 1:
+        case "3":
+            selectThree();
         break;
-        case 1:
+        case "4":
+            selectFour();
         break;
-        case 1:
+        case "5":
+            selectFive();
         break;
-        case 1:
+        case "6":
+            selectSix();
         break;
-        case 1:
+        case "7":
+            selectSeven();
         break;
-        case 1:
+        case "8":
+            selectEight();
         break;
-        case 1:
+        case "9":
+            selectNine();
         break;
-        case 1:
+        case ".":
+            selectDot();
+        break;
+        case "Backspace":
+            selectBackspace();
+        break;
+        case "Enter":
+            selectEqualTo();
         break;
         default:
             e.preventDefault()
@@ -58,7 +78,35 @@ window.addEventListener("keydown", (e)=>{
     }
 })
 
- zero.addEventListener("click", ()=>{
+ zero.addEventListener("click", selectZero);
+ doubleZero.addEventListener("click", selectDoubleZero);
+ one.addEventListener("click", selectOne);
+ two.addEventListener("click", selectTwo);
+ three.addEventListener("click", selectThree);
+ four.addEventListener("click", selectFour);
+ five.addEventListener("click", selectFive);
+ six.addEventListener("click", selectSix);
+ seven.addEventListener("click", selectSeven);
+ eight.addEventListener("click", selectEight);
+ nine.addEventListener("click", selectNine);
+ dot.addEventListener("click", selectDot);
+ add.addEventListener("click", selectAdd);
+ subtract.addEventListener("click", selectSubtract);
+ multiply.addEventListener("click", selectMultiply);
+ divide.addEventListener("click", selectDivide);
+ modulo.addEventListener("click", selectModulo);
+ equalTo.addEventListener("click", selectEqualTo);
+ backspace.addEventListener("click", selectBackspace);
+ empty.addEventListener("click", selectEmpty);
+
+ function selectEmpty(){
+    expression = "0";
+    output.value = "0";
+    dispExp.value = "0";
+    isDecimalAvailable = true;
+ }
+    function selectZero(){
+
         if(expression != "0"){
             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" ||         expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
             expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
@@ -73,12 +121,40 @@ window.addEventListener("keydown", (e)=>{
                 output.value = output.value.concat("0");
                 expression = expression.concat("0");
             }
+
+            dispExp.value = expression;
         }
 
         console.log(expression)
-    });
 
-    one.addEventListener("click", ()=>{
+    }
+
+
+    function selectDoubleZero(){
+        if(expression != "0"){
+            if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" ||         expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
+            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
+            {
+                if(expression[expression.length - 1] == "="){
+                    expression = "";
+                }
+                output.value = "00";
+                expression = expression.concat("00");
+            }else
+            {
+                output.value = output.value.concat("00");
+                expression = expression.concat("00");
+            }
+
+            dispExp.value = expression;
+        }
+
+        console.log(expression)
+    }
+
+
+
+    function selectOne(){
 
         if(expression == "0"){
             expression = "1";
@@ -98,11 +174,12 @@ window.addEventListener("keydown", (e)=>{
                 expression = expression.concat("1");
             }
         }
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    two.addEventListener("click", ()=>{
+    function selectTwo(){
 
         if(expression == "0"){
             expression = "2";
@@ -122,11 +199,12 @@ window.addEventListener("keydown", (e)=>{
                 expression = expression.concat("2");
             }
         }
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    three.addEventListener("click", ()=>{
+    function selectThree(){
 
         if(expression == "0"){
             expression = "3";
@@ -147,11 +225,12 @@ window.addEventListener("keydown", (e)=>{
                 expression = expression.concat("3");
             }
         }
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    four.addEventListener("click", ()=>{
+    function selectFour(){
 
         if(expression == "0"){
             expression = "4";
@@ -171,35 +250,37 @@ window.addEventListener("keydown", (e)=>{
                 expression = expression.concat("4");
             }
         }
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    five.addEventListener("click", ()=>{
+    function selectFive(){
 
-       if(expression == "0"){
-            expression = "5";
-            output.value = expression;
-        }else{
-            if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
-            {
-                if(expression[expression.length - 1] == "="){
-                    expression = "";
-                }
-                output.value = "5";
-                expression = expression.concat("5");
-            }else
-            {
-                output.value = output.value.concat("5");
-                expression = expression.concat("5");
-            }
-        }
-        console.log(expression)
+        if(expression == "0"){
+             expression = "5";
+             output.value = expression;
+         }else{
+             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
+             expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
+             {
+                 if(expression[expression.length - 1] == "="){
+                     expression = "";
+                 }
+                 output.value = "5";
+                 expression = expression.concat("5");
+             }else
+             {
+                 output.value = output.value.concat("5");
+                 expression = expression.concat("5");
+             }
+         }
+         dispExp.value = expression;
+         console.log(expression)
+ 
+     }
 
-    });
-
-    six.addEventListener("click", ()=>{
+     function selectSix(){
 
         if(expression == "0"){
             expression = "6";
@@ -219,11 +300,12 @@ window.addEventListener("keydown", (e)=>{
                 expression = expression.concat("6");
             }
         }
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    seven.addEventListener("click", ()=>{
+    function selectSeven(){
         if(expression == "0"){
             expression = "7";
             output.value = expression;
@@ -242,65 +324,84 @@ window.addEventListener("keydown", (e)=>{
                 expression = expression.concat("7");
             }
         }
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    eight.addEventListener("click", ()=>{
+    function selectEight(){
 
-       if(expression == "0"){
-            expression = "8";
-            output.value = expression;
-        }else{
-            if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
-            {
-                if(expression[expression.length - 1] == "="){
-                    expression = "";
-                }
-                output.value = "8";
-                expression = expression.concat("8");
-            }else
-            {
-                output.value = output.value.concat("8");
-                expression = expression.concat("8");
-            }
+        if(expression == "0"){
+             expression = "8";
+             output.value = expression;
+         }else{
+             if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
+             expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
+             {
+                 if(expression[expression.length - 1] == "="){
+                     expression = "";
+                 }
+                 output.value = "8";
+                 expression = expression.concat("8");
+             }else
+             {
+                 output.value = output.value.concat("8");
+                 expression = expression.concat("8");
+             }
+         }
+         dispExp.value = expression;
+         console.log(expression)
+ 
+     }
+
+     function selectNine(){
+
+        if(expression == "0"){
+               expression = "9";
+               output.value = expression;
+           }else{
+               if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
+               expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
+               {
+                   console.log(expression);
+   
+                   if(expression[expression.length - 1] == "="){
+                       expression = "";
+                   }
+   
+                   console.log(expression);
+   
+                   output.value = "9";
+                   expression = expression.concat("9");
+               }else
+               {
+                   output.value = output.value.concat("9");
+                   expression = expression.concat("9");
+               }
+           }
+           dispExp.value = expression;
+           console.log(expression)
+   
+       }
+
+    function selectDot(){
+
+        if(expression[expression.length - 1] == "="){
+            expression = "";
         }
-        console.log(expression)
 
-    });
-
-    nine.addEventListener("click", ()=>{
-
-     if(expression == "0"){
-            expression = "9";
-            output.value = expression;
-        }else{
-            if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
-            expression[expression.length - 1] == "%" || expression[expression.length - 1] == "=")
-            {
-                console.log(expression);
-
-                if(expression[expression.length - 1] == "="){
-                    expression = "";
-                }
-
-                console.log(expression);
-
-                output.value = "9";
-                expression = expression.concat("9");
-            }else
-            {
-                output.value = output.value.concat("9");
-                expression = expression.concat("9");
-            }
+        if(isDecimalAvailable){
+            expression = expression.concat(".");
+            output.value = output.value.concat(".");
+            isDecimalAvailable = false;
         }
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
 
-    add.addEventListener("click", ()=>{
+    function selectAdd(){
         isDecimalAvailable = true;
 
         if(expression[expression.length - 1] == "="){
@@ -312,16 +413,18 @@ window.addEventListener("keydown", (e)=>{
                 expression = evaluateExpression(expression);
                 output.value = expression;
                 expression = expression.concat("+");
+                dispExp.value = expression;
                 console.log(expression)
                 return;
             }
         }
         expression = expression.concat("+");
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    subtract.addEventListener("click", ()=>{
+    function selectSubtract(){
         isDecimalAvailable = true;
 
         if(expression[expression.length - 1] == "="){
@@ -333,16 +436,18 @@ window.addEventListener("keydown", (e)=>{
                 expression = evaluateExpression(expression);
                 output.value = expression;
                 expression = expression.concat("-");
+                dispExp.value = expression;
                 console.log(expression)
                 return;
             }
         }
         expression = expression.concat("-");
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    multiply.addEventListener("click", ()=>{
+    function selectMultiply(){
         isDecimalAvailable = true;
 
         if(expression[expression.length - 1] == "="){
@@ -354,16 +459,18 @@ window.addEventListener("keydown", (e)=>{
                 expression = evaluateExpression(expression);
                 output.value = expression;
                 expression = expression.concat("*");
+                dispExp.value = expression;
                 console.log(expression)
                 return;
             }
         }
         expression = expression.concat("*");
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    divide.addEventListener("click", ()=>{
+    function selectDivide(){
         isDecimalAvailable = true;
 
         if(expression[expression.length - 1] == "="){
@@ -375,16 +482,18 @@ window.addEventListener("keydown", (e)=>{
                 expression = evaluateExpression(expression);
                 output.value = expression;
                 expression = expression.concat("/");
+                dispExp.value = expression;
                 console.log(expression)
                 return;
             }
         }
         expression = expression.concat("/");
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
-    modulo.addEventListener("click", ()=>{
+    function selectModulo(){
         isDecimalAvailable = true;
 
         if(expression[expression.length - 1] == "="){
@@ -396,43 +505,66 @@ window.addEventListener("keydown", (e)=>{
                 expression = evaluateExpression(expression);
                 output.value = expression;
                 expression = expression.concat("%");
+                dispExp.value = expression;
                 console.log(expression)
                 return;
             }
         }
         expression = expression.concat("%");
+        dispExp.value = expression;
         console.log(expression)
 
-    });
+    }
 
 
 
-    equalTo.addEventListener("click", ()=>{
+    function selectEqualTo(){
         isDecimalAvailable = true;
+
         expression = evaluateExpression(expression);
         if(expression[expression.length - 1] != "="){
+            dispExp.value = expression;
             output.value = expression;
             expression = expression.concat("=");
         }
         console.log(expression)
 
-    })
+    }
 
-    dot.addEventListener("click",()=>{
+    function selectBackspace(){
 
-        
-        if(expression[expression.length - 1] == "="){
-            expression = "";
-        }
+        if(expression[expression.length - 1] == "+" || expression[expression.length - 1] == "-" || 
+           expression[expression.length - 1] == "*" || expression[expression.length - 1] == "/" ||
+           expression[expression.length - 1] == "%"){
 
-        if(isDecimalAvailable){
-            expression = expression.concat(".");
-            output.value = output.value.concat(".");
-            isDecimalAvailable = false;
-        }
-        console.log(expression)
+               expression = expression.slice(0,expression.length - 1);
 
-    })
+               dispExp.value = expression;
+           }else if(expression[expression.length - 1] != "="){
+
+            expression = expression.slice(0,expression.length - 1)
+
+            dispExp.value = expression;
+            output.value = output.value.slice(0,output.value.length - 1);
+                if(output.value.length == 0){
+
+                    output.value = expression.slice(0,expression.length - 1);
+
+                }
+           }else{
+            expression = expression.slice(0,expression.length - 1);
+
+
+            expression = expression.slice(0,expression.length - 1);
+
+            dispExp.value = expression;
+
+            output.value = output.value.slice(0,output.value.length - 1);
+           }
+
+    }
+
+    
 
  function evaluateExpression(exp){
     let arr = exp.split("");
@@ -455,10 +587,16 @@ window.addEventListener("keydown", (e)=>{
 
     }   
 
-    console.log(firstvalue)
-    console.log(operator)
-    console.log(secondvalue)
+
     if(secondvalue == ""){
+        return firstvalue;
+    }else if(secondvalue == "0"){
+        para.textContent = "Cannot divide by zero";
+
+        setTimeout(() => {
+            para.textContent = "";
+        }, 5000);
+
         return firstvalue;
     }
 

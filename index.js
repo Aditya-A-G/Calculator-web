@@ -287,6 +287,7 @@ window.addEventListener("keydown", (e)=>{
                  }
                  output.value = "5";
                  expression = expression.concat("5");
+                 console.log(expression);
              }else
              {
                  output.value = output.value.concat("5");
@@ -590,8 +591,13 @@ window.addEventListener("keydown", (e)=>{
     let firstvalue = "";
     let secondvalue = "";
     let ans = "";
+    let start = 0;
 
-    for(let i = 0; i<arr.length; i++){
+    if(arr[0] == "+" || arr[0] == "-"){
+        start = 1;
+    }
+
+    for(let i = start; i<arr.length; i++){
         if(arr[i] == "+" || arr[i] == "-" || arr[i] == "*" || arr[i] == "/" || arr[i] == "%"){
             operator = arr[i];
         }else{
@@ -605,10 +611,14 @@ window.addEventListener("keydown", (e)=>{
 
     }   
 
-
+    if(start == 1){
+        firstvalue = `${arr[0]}${firstvalue}`;
+        console.log(firstvalue)
+    }
+    
     if(secondvalue == ""){
         return firstvalue;
-    }else if(secondvalue == "0"){
+    }else if(secondvalue == "0" && operator == "/"){
         para.textContent = "Cannot divide by zero";
 
         setTimeout(() => {
@@ -618,6 +628,7 @@ window.addEventListener("keydown", (e)=>{
         return firstvalue;
     }
 
+  
     firstvalue = Number(firstvalue);
     secondvalue = Number(secondvalue);
 

@@ -66,6 +66,24 @@ window.addEventListener("keydown", (e)=>{
         case ".":
             selectDot();
         break;
+        case "+":
+            selectAdd();
+        break;
+        case "-":
+            selectSubtract();
+        break;
+        case "*":
+            selectMultiply();
+        break;
+        case "/":
+            selectDivide();
+        break;
+        case "%":
+            selectModulo();
+        break;
+        case "=":
+            selectEqualTo();
+        break;
         case "Backspace":
             selectBackspace();
         break;
